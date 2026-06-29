@@ -740,7 +740,7 @@ public:
 };
 
 ```
-
+ #  🚀 TYPE II -- SLIDING WINDOW PROBLEMS
 📄 01_Maximum_Sum_Subarray_of_Size_K.md
 🚀1. Maximum Sum Subarray of Size K --- [6]
 
@@ -802,6 +802,7 @@ Slide
 Sum = 9
 
 Maximum = 9
+```
 🚀 Flow
 Add nums[right]
 
@@ -824,7 +825,10 @@ Remove nums[left]
 ↓
 
 left++
+```
 💻 C++ Code
+
+```CPP
 class Solution {
 public:
     int maximumSumSubarray(vector<int>& nums, int k) {
@@ -857,6 +861,8 @@ public:
         return answer;
     }
 };
+
+```
 ⚡ Memory Trick
 Add
 
