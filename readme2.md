@@ -83,6 +83,8 @@ left++
 right++
 ```
 📄 01_Move_Zeroes.cpp
+
+```cpp
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
@@ -99,6 +101,8 @@ public:
         }
     }
 };
+
+```
 📄 02_Two_Sum_II.md
 # 🚀 Two Sum II
 
@@ -186,6 +190,7 @@ Large Sum
 right--
 ```
 📄 02_Two_Sum_II.cpp
+```cpp
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
@@ -210,6 +215,8 @@ public:
         return {};
     }
 };
+
+```
 📄 03_3Sum.md
 # 🚀 3Sum
 
@@ -317,6 +324,9 @@ Store
 Duplicate Skip
 ```
 📄 03_3Sum.cpp
+
+
+```cpp
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
@@ -366,3 +376,5 @@ public:
         return answer;
     }
 };
+
+```
