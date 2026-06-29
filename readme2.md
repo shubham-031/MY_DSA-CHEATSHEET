@@ -734,3 +734,303 @@ public:
         return answer;
     }
 };
+
+
+📄 01_Maximum_Sum_Subarray_of_Size_K.md
+🚀 Maximum Sum Subarray of Size K
+
+Pattern : Fixed Size Sliding Window
+
+🧠 Pattern
+
+Question मध्ये खालील Keywords शोधा.
+
+Maximum Sum
+Size K
+Consecutive
+Subarray
+
+👉 Window Size नेहमी K असते.
+
+💭 Question कसा विचार करायचा?
+
+Window मध्ये Elements Add करत जा.
+
+Window Size K झाली की
+
+Answer Update करा.
+Left Element Remove करा.
+Window Slide करा.
+👀 Visualization
+nums = [2 1 5 1 3 2]
+k = 3
+
+L
+R
+
+2 1 5
+
+Sum = 8
+
+↓
+
+Slide
+
+2 1 5 1
+↑     ↑
+L     R
+
+Remove 2
+
+Window
+
+1 5 1
+
+Sum = 7
+
+↓
+
+Slide
+
+5 1 3
+
+Sum = 9
+
+Maximum = 9
+🚀 Flow
+Add nums[right]
+
+↓
+
+Window Size == K ?
+
+↓
+
+YES
+
+↓
+
+Update Maximum Sum
+
+↓
+
+Remove nums[left]
+
+↓
+
+left++
+💻 C++ Code
+class Solution {
+public:
+    int maximumSumSubarray(vector<int>& nums, int k) {
+
+        int left = 0;
+        int sum = 0;
+        int answer = INT_MIN;
+
+        for(int right = 0; right < nums.size(); right++)
+        {
+            // 1. Expand Window
+
+            sum += nums[right];
+
+            // 2. Window Full
+
+            if(right - left + 1 == k)
+            {
+                // 3. Process Answer
+
+                answer = max(answer, sum);
+
+                // 4. Slide Window
+
+                sum -= nums[left];
+                left++;
+            }
+        }
+
+        return answer;
+    }
+};
+⚡ Memory Trick
+Add
+
+↓
+
+Window Full
+
+↓
+
+Update Answer
+
+↓
+
+Remove Left
+
+↓
+
+Repeat
+🚀 One Line Trick
+
+"Window Full झाली की Answer Update करा आणि Window Slide करा."
+
+📄 02_Max_Consecutive_Ones.md
+🚀 Max Consecutive Ones
+
+Pattern : Variable Size Sliding Window
+
+🧠 Pattern
+
+Question मध्ये खालील Keywords शोधा.
+
+Consecutive
+Longest
+Maximum Length
+At Most K Zeroes
+Flip
+💭 Question कसा विचार करायचा?
+
+Window Expand करा.
+
+Zero Count वाढत जाईल.
+
+जर Zero Count > K
+
+तर
+
+Left Move करून Window Shrink करा.
+
+प्रत्येक Valid Window ला
+
+Maximum Length Update करा.
+
+👀 Visualization
+nums
+
+1 1 0 1 1 1 0 1
+
+L
+R
+
+↓
+
+Zero = 0
+
+↓
+
+Expand
+
+1 1 0 1
+
+Zero = 1
+
+↓
+
+Expand
+
+1 1 0 1 1 1
+
+↓
+
+Zero > K ?
+
+↓
+
+YES
+
+↓
+
+Move Left
+
+↓
+
+Window Valid
+
+↓
+
+Update Length
+🚀 Flow
+Expand Window
+
+↓
+
+Add Current Element
+
+↓
+
+Zero Count > K ?
+
+↓
+
+YES
+
+↓
+
+Shrink Window
+
+↓
+
+NO
+
+↓
+
+Update Maximum Length
+💻 C++ Code (Max Consecutive Ones III)
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+
+        int left = 0;
+        int zeroCount = 0;
+        int answer = 0;
+
+        for(int right = 0; right < nums.size(); right++)
+        {
+            // 1. Expand Window
+
+            if(nums[right] == 0)
+            {
+                zeroCount++;
+            }
+
+            // 2. Shrink Window
+
+            while(zeroCount > k)
+            {
+                if(nums[left] == 0)
+                {
+                    zeroCount--;
+                }
+
+                left++;
+            }
+
+            // 3. Process Answer
+
+            answer = max(answer, right - left + 1);
+        }
+
+        return answer;
+    }
+};
+⚡ Memory Trick
+Expand
+
+↓
+
+Zero Count
+
+↓
+
+Too Many Zeroes?
+
+↓
+
+Shrink
+
+↓
+
+Update Length
+🚀 One Line Trick
+
+"Condition Break झाली की Left Move करा, Condition Valid झाली की Maximum Length Update करा."
