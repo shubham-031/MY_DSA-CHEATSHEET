@@ -105,7 +105,7 @@ public:
 
 ```
 📄 02_Two_Sum_II.md
-# 🚀 2.Two Sum II ---2
+# 🚀 2.Two Sum II ---[2]
 
 > **Pattern : Two Pointer**
 
@@ -219,7 +219,7 @@ public:
 
 ```
 📄 03_3Sum.md
-# 3.🚀 3Sum
+# 3.🚀 3Sum --- [3]
 
 > **Pattern : Sorting + Two Pointer**
 
@@ -380,7 +380,7 @@ public:
 
 ```
 
-# 4.🚀 Sort Colors
+# 4.🚀 Sort Colors --- [4]
 
 > **Pattern : Dutch National Flag (Three Pointer)**
 
@@ -525,6 +525,8 @@ Ignore
 Right ला पाठवा
 ```
 📄 04_Sort_Colors.cpp
+
+```cpp
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
@@ -553,10 +555,10 @@ public:
         }
     }
 };
-
+```
 
 📄 05_Container_With_Most_Water.md
-# 🚀 Container With Most Water
+# 🚀5. Container With Most Water --- [5]
 
 > **Pattern : Two Pointer**
 
@@ -704,6 +706,8 @@ Maximum Area Update करा
 
 > **"Area ला नेहमी छोटी Height मर्यादित करते, म्हणून छोटी Height Move करा."**
 📄 05_Container_With_Most_Water.cpp
+
+```cpp
 class Solution {
 public:
     int maxArea(vector<int>& height) {
@@ -735,9 +739,10 @@ public:
     }
 };
 
+```
 
 📄 01_Maximum_Sum_Subarray_of_Size_K.md
-🚀 Maximum Sum Subarray of Size K
+🚀1. Maximum Sum Subarray of Size K --- [6]
 
 Pattern : Fixed Size Sliding Window
 
