@@ -1,6 +1,6 @@
  #  🚀 TWO POINTER PROBLEMS
  📄 01_Move_Zeroes.md
-## 🚀1. Move Zeroes ---1
+## 🚀1. Move Zeroes --- [1]
 
 > **Pattern : Two Pointer**
 
