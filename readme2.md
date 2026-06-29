@@ -743,9 +743,9 @@ public:
  #  🚀 TYPE II -- SLIDING WINDOW PROBLEMS
 📄 01_Maximum_Sum_Subarray_of_Size_K.md
 🚀1. Maximum Sum Subarray of Size K --- [6]
-
+```
 Pattern : Fixed Size Sliding Window
-
+```
 🧠 Pattern
 
 Question मध्ये खालील Keywords शोधा.
@@ -977,7 +977,11 @@ Window Valid
 ↓
 
 Update Length
+
+```
 🚀 Flow
+
+```
 Expand Window
 
 ↓
