@@ -755,6 +755,7 @@ Size K
 Consecutive
 Subarray
 
+```
 👉 Window Size नेहमी K असते.
 
 💭 Question कसा विचार करायचा?
@@ -766,7 +767,11 @@ Window Size K झाली की
 Answer Update करा.
 Left Element Remove करा.
 Window Slide करा.
+
+```
 👀 Visualization
+
+```text
 nums = [2 1 5 1 3 2]
 k = 3
 
@@ -804,6 +809,9 @@ Sum = 9
 Maximum = 9
 ```
 🚀 Flow
+
+
+```
 Add nums[right]
 
 ↓
