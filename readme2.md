@@ -1,6 +1,6 @@
  #  🚀 TWO POINTER PROBLEMS
  📄 01_Move_Zeroes.md
-## 🚀1. Move Zeroes
+## 🚀1. Move Zeroes ---1
 
 > **Pattern : Two Pointer**
 
@@ -105,7 +105,7 @@ public:
 
 ```
 📄 02_Two_Sum_II.md
-# 🚀 2.Two Sum II
+# 🚀 2.Two Sum II ---2
 
 > **Pattern : Two Pointer**
 
@@ -190,7 +190,7 @@ Large Sum
 
 right--
 ```
-📄 02_Two_Sum_II.cpp
+📄 02_Two_Sum_II.cpp 
 ```cpp
 class Solution {
 public:
