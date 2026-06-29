@@ -1,6 +1,6 @@
  #  🚀 TWO POINTER PROBLEMS
  📄 01_Move_Zeroes.md
-## 🚀 Move Zeroes
+## 🚀1. Move Zeroes
 
 > **Pattern : Two Pointer**
 
@@ -105,7 +105,7 @@ public:
 
 ```
 📄 02_Two_Sum_II.md
-# 🚀 Two Sum II
+# 🚀 2.Two Sum II
 
 > **Pattern : Two Pointer**
 
@@ -219,7 +219,7 @@ public:
 
 ```
 📄 03_3Sum.md
-# 🚀 3Sum
+# 3.🚀 3Sum
 
 > **Pattern : Sorting + Two Pointer**
 
@@ -379,3 +379,358 @@ public:
 };
 
 ```
+
+# 4.🚀 Sort Colors
+
+> **Pattern : Dutch National Flag (Three Pointer)**
+
+---
+
+## 🧠 Pattern
+
+Question मध्ये खालील **Keywords** शोधा.
+
+- **Sort Colors**
+- **Only 0, 1, 2**
+- **In-place**
+- **One Pass**
+
+**Pattern**
+
+```text
+Dutch National Flag
+
+(Three Pointer)
+```
+
+---
+
+## 💭 Question कसा विचार करायचा?
+
+Question म्हणतो,
+
+Array मध्ये फक्त **0, 1, 2** आहेत.
+
+Sorting करायची आहे.
+
+पण Extra Array वापरायचा नाही.
+
+म्हणून तीन भाग तयार करा.
+
+```text
+0 चा भाग
+
+↓
+
+1 चा भाग
+
+↓
+
+Unknown भाग
+
+↓
+
+2 चा भाग
+```
+
+**Pointer Thinking**
+
+```text
+left
+
+↓
+
+0 ठेवायची जागा
+
+
+mid
+
+↓
+
+Current Element Check करणार
+
+
+right
+
+↓
+
+2 ठेवायची जागा
+```
+
+**Flow**
+
+```text
+nums[mid] == 0
+
+↓
+
+Swap(left, mid)
+
+↓
+
+left++
+
+↓
+
+mid++
+
+
+--------------------
+
+
+nums[mid] == 1
+
+↓
+
+mid++
+
+
+--------------------
+
+
+nums[mid] == 2
+
+↓
+
+Swap(mid, right)
+
+↓
+
+right--
+```
+
+---
+
+## ⚡ Memory Trick
+
+```text
+0
+
+↓
+
+Left ला पाठवा
+
+
+1
+
+↓
+
+Ignore
+
+
+2
+
+↓
+
+Right ला पाठवा
+```
+📄 04_Sort_Colors.cpp
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+
+        int left = 0;
+        int mid = 0;
+        int right = nums.size() - 1;
+
+        while(mid <= right)
+        {
+            if(nums[mid] == 0)
+            {
+                swap(nums[left], nums[mid]);
+                left++;
+                mid++;
+            }
+            else if(nums[mid] == 1)
+            {
+                mid++;
+            }
+            else
+            {
+                swap(nums[mid], nums[right]);
+                right--;
+            }
+        }
+    }
+};
+
+
+📄 05_Container_With_Most_Water.md
+# 🚀 Container With Most Water
+
+> **Pattern : Two Pointer**
+
+---
+
+## 🧠 Pattern
+
+Question मध्ये खालील **Keywords** शोधा.
+
+- **Maximum Area**
+- **Container**
+- **Height**
+- **Width**
+- **Maximum Water**
+
+**Pattern**
+
+```text
+Two Pointer
+```
+
+---
+
+## 💭 Question कसा विचार करायचा?
+
+Question म्हणतो,
+
+दोन Lines निवडायच्या आहेत.
+
+त्या दोन Lines मध्ये **जास्तीत जास्त पाणी (Maximum Area)** साठलं पाहिजे.
+
+Area काढायचं Formula आहे.
+
+```text
+Area = Width × Minimum Height
+```
+
+सुरुवातीला,
+
+- **left** = पहिली Line
+- **right** = शेवटची Line
+
+प्रत्येक Step ला,
+
+Area काढा.
+
+Maximum Answer Update करा.
+
+आता विचार करा,
+
+**कोणता Pointer Move करायचा?**
+
+👉 मोठी Height Move करू नका.
+
+कारण,
+
+**Area ला नेहमी छोटी Height मर्यादित करते.**
+
+म्हणून,
+
+👉 **छोटी Height असलेला Pointer Move करा.**
+
+---
+
+### Pointer Thinking
+
+```text
+left
+
+↓
+
+डावीकडची Height
+
+
+right
+
+↓
+
+उजवीकडची Height
+```
+
+---
+
+### Flow
+
+```text
+Area = Width × Minimum Height
+
+↓
+
+Maximum Area Update करा
+
+↓
+
+nums[left] < nums[right]
+
+↓
+
+YES
+
+↓
+
+left++
+
+↓
+
+NO
+
+↓
+
+right--
+```
+
+---
+
+## ⚡ Memory Trick
+
+```text
+Area
+
+=
+
+Width
+
+×
+
+Minimum Height
+
+↓
+
+Maximum Area Update करा
+
+↓
+
+नेहमी
+
+छोटी Height Move करा
+
+↓
+
+मोठी Height तशीच ठेवा
+```
+
+### 🚀 One Line Trick
+
+> **"Area ला नेहमी छोटी Height मर्यादित करते, म्हणून छोटी Height Move करा."**
+📄 05_Container_With_Most_Water.cpp
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+
+        int left = 0;
+        int right = height.size() - 1;
+
+        int answer = 0;
+
+        while(left < right)
+        {
+            int width = right - left;
+
+            int currentArea = width * min(height[left], height[right]);
+
+            answer = max(answer, currentArea);
+
+            if(height[left] < height[right])
+            {
+                left++;
+            }
+            else
+            {
+                right--;
+            }
+        }
+
+        return answer;
+    }
+};
