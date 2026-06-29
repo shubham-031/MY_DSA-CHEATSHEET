@@ -1074,4 +1074,928 @@ Update Length
 
 🚀 One Line Trick
 
-"Condition Break झाली की Left Move करा, Condition Valid झाली की Maximum Length Update करा."
+"Condition Break झाली की Left Move करा, Condition Valid झाली की Maximum Length Update करा
+
+
+# 📄 03_Max_Consecutive_Ones_III.md
+
+# 🚀 Max Consecutive Ones III
+
+> **Pattern : Variable Size Sliding Window**
+
+---
+
+# 🧠 Pattern (Keywords)
+
+Question मध्ये खालील **Keywords** शोधा.
+
+* Longest Subarray
+* Consecutive Ones
+* Flip 0 → 1
+* At Most K Zeroes
+* Maximum Length
+
+### 👉 Pattern
+
+Variable Size Sliding Window
+
+---
+
+# 💭 Question कसा विचार करायचा?
+
+आपल्याला सलग (Consecutive) जास्तीत जास्त 1's पाहिजेत.
+
+पण...
+
+आपण **जास्तीत जास्त K Zero Flip** करू शकतो.
+
+म्हणून,
+
+Window Expand करत जा.
+
+जर Window मध्ये
+
+**Zero Count > K**
+
+झाला
+
+तर
+
+Window Invalid झाली.
+
+आता
+
+Left Move करून
+
+Zero Count कमी करा.
+
+पुन्हा Window Valid झाली की
+
+Maximum Length Update करा.
+
+---
+
+# 👀 Visualization
+
+```
+nums
+
+1 1 1 0 0 0 1 1 1 1 0
+
+L
+R
+
+↓
+
+Window = [1]
+
+Zero = 0
+
+↓
+
+Expand
+
+1 1 1
+
+↓
+
+Expand
+
+1 1 1 0
+
+Zero = 1
+
+↓
+
+Expand
+
+1 1 1 0 0
+
+Zero = 2
+
+↓
+
+Expand
+
+1 1 1 0 0 0
+
+Zero = 3
+
+↓
+
+Zero > K ?
+
+YES
+
+↓
+
+Move Left
+
+↓
+
+Window Valid
+
+↓
+
+Update Answer
+```
+
+---
+
+# 📝 Dry Run
+
+Example
+
+```
+nums = [1,1,1,0,0,0,1,1]
+k = 2
+
+left = 0
+
+right = 0
+
+Window
+
+[1]
+
+Zero = 0
+
+Answer = 1
+
+↓
+
+right++
+
+[1 1]
+
+Answer = 2
+
+↓
+
+right++
+
+[1 1 1]
+
+Answer = 3
+
+↓
+
+right++
+
+[1 1 1 0]
+
+Zero = 1
+
+Answer = 4
+
+↓
+
+right++
+
+[1 1 1 0 0]
+
+Zero = 2
+
+Answer = 5
+
+↓
+
+right++
+
+[1 1 1 0 0 0]
+
+Zero = 3
+
+INVALID
+
+↓
+
+Move Left
+
+↓
+
+Window Valid
+
+↓
+
+Continue...
+```
+
+---
+
+# 🧠 Pointer Thinking
+
+```
+Left
+
+↓
+
+Remove Old Element
+
+-------------------------
+
+Right
+
+↓
+
+Add New Element
+```
+
+Remember
+
+```
+Right
+
+Expand
+
+↓
+
+Left
+
+Shrink
+
+↓
+
+Answer
+```
+
+---
+
+# 🚀 Step by Step Algorithm
+
+```
+Step 1
+
+left = 0
+
+↓
+
+Step 2
+
+Move Right
+
+↓
+
+Step 3
+
+If nums[right]==0
+
+Zero++
+
+↓
+
+Step 4
+
+Zero > K ?
+
+↓
+
+YES
+
+↓
+
+Move Left
+
+↓
+
+If nums[left]==0
+
+Zero--
+
+↓
+
+Step 5
+
+Answer = max(answer, windowSize)
+```
+
+---
+
+# 💻 Pattern Template
+
+```cpp
+int left = 0;
+
+for(int right = 0; right < n; right++)
+{
+    // Expand Window
+
+    // Update Current State
+
+    while(condition_break)
+    {
+        // Shrink Window
+
+        left++;
+    }
+
+    // Update Answer
+}
+```
+
+---
+
+# 💻 Final C++ Code
+
+```cpp
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+
+        int left = 0;
+        int zeroCount = 0;
+        int answer = 0;
+
+        for(int right = 0; right < nums.size(); right++)
+        {
+            // 1. Expand Window
+
+            if(nums[right] == 0)
+            {
+                zeroCount++;
+            }
+
+            // 2. Shrink Window
+
+            while(zeroCount > k)
+            {
+                if(nums[left] == 0)
+                {
+                    zeroCount--;
+                }
+
+                left++;
+            }
+
+            // 3. Update Answer
+
+            answer = max(answer, right - left + 1);
+        }
+
+        return answer;
+    }
+};
+```
+
+---
+
+# ⚡ Time & Space Complexity
+
+```
+Time  : O(n)
+
+Space : O(1)
+```
+
+---
+
+# ⚡ Memory Trick
+
+```
+Expand
+
+↓
+
+Zero Count
+
+↓
+
+Too Many Zeroes?
+
+↓
+
+YES
+
+↓
+
+Shrink
+
+↓
+
+Answer
+```
+
+---
+
+# 🚀 One Line Trick
+
+> **"Zero Count K पेक्षा जास्त झाला की Left Move करा, अन्यथा Window Length Update करा."**
+
+---
+
+# 🎯 Similar Problems
+
+* Maximum Consecutive Ones
+* Longest Repeating Character Replacement
+* Max Consecutive Ones III
+* Longest Substring with At Most K Distinct Characters
+* Fruit Into Baskets
+```
+# 📄 04_Subarray_Product_Less_Than_K.md
+
+# 🚀 Subarray Product Less Than K
+
+> **Pattern : Variable Size Sliding Window**
+
+---
+
+# 🧠 Pattern (Keywords)
+
+Question मध्ये खालील **Keywords** शोधा.
+
+* Subarray
+* Product
+* Less Than K
+* Count
+* Continuous / Consecutive
+
+### 👉 Pattern
+
+**Variable Size Sliding Window**
+
+---
+
+# 💭 Question कसा विचार करायचा?
+
+या Question मध्ये **Maximum / Minimum** शोधायचं नाही.
+
+आपल्याला **Count** शोधायचा आहे.
+
+Question म्हणतो,
+
+**Product < K** असलेले सर्व Subarrays Count करा.
+
+---
+
+### 🤔 Important Observation
+
+जर
+
+```text
+Window Product < K
+```
+
+असेल
+
+तर
+
+त्या Window मध्ये **right वर संपणारे सर्व Subarrays** पण Valid असतात.
+
+उदा.
+
+```text
+L         R
+
+2 5 3
+
+Product = 30
+```
+
+Valid Window आहे.
+
+मग खालील सर्व Valid आहेत.
+
+```text
+[2 5 3]
+
+[5 3]
+
+[3]
+```
+
+म्हणजे
+
+```text
+Count = Window Size
+```
+
+यामुळे प्रत्येक वेळेस
+
+```cpp
+answer += windowSize;
+```
+
+हे करतो.
+
+हीच या Problem ची Main Trick आहे.
+
+---
+
+# 👀 Visualization
+
+Example
+
+```text
+nums = [10 5 2 6]
+
+k = 100
+
+
+L
+R
+
+10
+
+Product = 10
+
+Window Size = 1
+
+Answer += 1
+
+----------------------------
+
+10 5
+
+Product = 50
+
+Window Size = 2
+
+Answer += 2
+
+Subarrays
+
+[10 5]
+
+[5]
+
+----------------------------
+
+10 5 2
+
+Product = 100
+
+INVALID
+
+↓
+
+Shrink
+
+----------------------------
+
+5 2
+
+Product = 10
+
+Window Size = 2
+
+Answer += 2
+
+Subarrays
+
+[5 2]
+
+[2]
+```
+
+---
+
+# 📝 Dry Run
+
+```text
+nums = [10,5,2,6]
+
+k = 100
+
+
+Initially
+
+Product = 1
+
+Answer = 0
+
+--------------------------------
+
+Add 10
+
+Product = 10
+
+Window = [10]
+
+Answer +=1
+
+Answer = 1
+
+--------------------------------
+
+Add 5
+
+Product = 50
+
+Window = [10 5]
+
+Answer +=2
+
+Answer = 3
+
+--------------------------------
+
+Add 2
+
+Product =100
+
+INVALID
+
+Remove 10
+
+Product =10
+
+Window = [5 2]
+
+Answer +=2
+
+Answer =5
+
+--------------------------------
+
+Add 6
+
+Product =60
+
+Window = [5 2 6]
+
+Answer +=3
+
+Answer =8
+```
+
+Final Answer
+
+```text
+8
+```
+
+---
+
+# 🧠 Pointer Thinking
+
+```text
+left
+
+↓
+
+Remove Product
+
+----------------------
+
+right
+
+↓
+
+Multiply Product
+```
+
+Remember
+
+```text
+Right
+
+↓
+
+Multiply
+
+↓
+
+Product >= K ?
+
+↓
+
+YES
+
+↓
+
+Left Divide
+
+↓
+
+Valid Window
+
+↓
+
+Count Window Size
+```
+
+---
+
+# 🚀 Step by Step Algorithm
+
+```text
+Step 1
+
+left = 0
+
+product = 1
+
+answer = 0
+
+↓
+
+Step 2
+
+Multiply nums[right]
+
+↓
+
+Step 3
+
+Product >= K ?
+
+↓
+
+YES
+
+↓
+
+Divide nums[left]
+
+↓
+
+left++
+
+↓
+
+Repeat
+
+↓
+
+Step 4
+
+Window Valid
+
+↓
+
+answer += windowSize
+```
+
+---
+
+# 💻 Pattern Template
+
+```cpp
+int left = 0;
+
+for(int right = 0; right < n; right++)
+{
+    // Expand Window
+
+    // Update Product
+
+    while(product >= k)
+    {
+        // Shrink Window
+
+        left++;
+    }
+
+    // Count Current Window
+}
+```
+
+---
+
+# 💻 Final C++ Code
+
+```cpp
+class Solution {
+public:
+    int numSubarrayProductLessThanK(vector<int>& nums, int k) {
+
+        if(k <= 1)
+        {
+            return 0;
+        }
+
+        int left = 0;
+        int answer = 0;
+
+        long long product = 1;
+
+        for(int right = 0; right < nums.size(); right++)
+        {
+            // 1. Expand Window
+
+            product *= nums[right];
+
+            // 2. Shrink Window
+
+            while(product >= k)
+            {
+                product /= nums[left];
+                left++;
+            }
+
+            // 3. Count Valid Subarrays
+
+            answer += (right - left + 1);
+        }
+
+        return answer;
+    }
+};
+```
+
+---
+
+# ⚡ Time & Space Complexity
+
+```text
+Time  : O(n)
+
+Space : O(1)
+```
+
+---
+
+# ⚡ Memory Trick
+
+```text
+Multiply
+
+↓
+
+Product >= K ?
+
+↓
+
+YES
+
+↓
+
+Divide
+
+↓
+
+Window Valid
+
+↓
+
+Add Window Size
+```
+
+---
+
+# 🚀 One Line Trick
+
+> **"Window Valid झाली की `windowSize` इतके नवीन Subarrays मिळतात."**
+
+---
+
+# 🔥 Most Important Trick ⭐⭐⭐⭐⭐
+
+Normal Sliding Window मध्ये आपण
+
+```cpp
+answer = max(answer, windowSize);
+```
+
+करतो.
+
+पण या Question मध्ये
+
+```cpp
+answer += (right - left + 1);
+```
+
+का?
+
+कारण
+
+Current Window Valid असेल तर
+
+```text
+L           R
+
+2 5 3
+```
+
+हे सर्व नवीन Subarrays Valid असतात.
+
+```text
+[2 5 3]
+
+[5 3]
+
+[3]
+```
+
+म्हणून
+
+```text
+Count = Window Size
+```
+
+हा Rule या Problem चा **Golden Rule** आहे.
+
+---
+
+# 🎯 Similar Problems
+
+* Binary Subarrays With Sum
+* Count Number of Nice Subarrays
+* Number of Substrings Containing All Three Characters
+* Count Vowel Substrings
+* Count Complete Subarrays
+
+```
+
+
+
