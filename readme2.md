@@ -872,6 +872,8 @@ public:
 
 ```
 ⚡ Memory Trick
+
+```
 Add
 
 ↓
@@ -889,17 +891,20 @@ Remove Left
 ↓
 
 Repeat
+
+```
 🚀 One Line Trick
-
+``` text
 "Window Full झाली की Answer Update करा आणि Window Slide करा."
-
-📄 02_Max_Consecutive_Ones.md
-🚀 Max Consecutive Ones
-
+```text
+```
+📄 02_Max_Consecutive_Ones.md  
+🚀 2. Max Consecutive Ones --- [7]
+```
 Pattern : Variable Size Sliding Window
-
+```
 🧠 Pattern
-
+```
 Question मध्ये खालील Keywords शोधा.
 
 Consecutive
@@ -907,8 +912,10 @@ Longest
 Maximum Length
 At Most K Zeroes
 Flip
-💭 Question कसा विचार करायचा?
 
+```
+💭 Question कसा विचार करायचा?
+```
 Window Expand करा.
 
 Zero Count वाढत जाईल.
@@ -922,8 +929,10 @@ Left Move करून Window Shrink करा.
 प्रत्येक Valid Window ला
 
 Maximum Length Update करा.
-
+```
 👀 Visualization
+
+```
 nums
 
 1 1 0 1 1 1 0 1
@@ -994,7 +1003,11 @@ NO
 ↓
 
 Update Maximum Length
+
+```
 💻 C++ Code (Max Consecutive Ones III)
+
+```
 class Solution {
 public:
     int longestOnes(vector<int>& nums, int k) {
@@ -1032,7 +1045,11 @@ public:
         return answer;
     }
 };
+
+```
 ⚡ Memory Trick
+
+```
 Expand
 
 ↓
@@ -1050,6 +1067,7 @@ Shrink
 ↓
 
 Update Length
+
 🚀 One Line Trick
 
 "Condition Break झाली की Left Move करा, Condition Valid झाली की Maximum Length Update करा."
