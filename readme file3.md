@@ -173,7 +173,7 @@ public:
 ```
 
 ## 5. Container With Most Water
-```
+```cpp
 class Solution {
 public:
     int maxArea(vector<int>& height) {
