@@ -476,7 +476,8 @@ public:
 
 ## 6.Minimum Size Subarray Sum
 
-## PATTERN
+## PATTERN -- 
+// Variable Size Sliding Window + Minimum Window Pattern + Positive Numbers
 
 ```cpp
 
@@ -640,7 +641,21 @@ public:
         return countAtMost(nums, k) - countAtMost(nums, k - 1);
     }
 };
-
 ```
+Placement साठी माझ्या मते हे ५ Variable Sliding Window patterns लक्षात ठेव:
+```
+```
+| Pattern                                   | Example Problems                         |
+| ----------------------------------------- | ---------------------------------------- |
+| **1. Longest Valid Window (At Most K)** ⭐ | 1004, 1493, 424, 2024                    |
+| **2. At Most K Distinct**                 | 904, 340, 159                            |
+| **3. Exactly K Distinct**                 | 992, 1248, 930 (AtMost(K) - AtMost(K-1)) |
+| **4. Minimum Window**                     | 76, 209                                  |
+| **5. Monotonic Window**                   | 239, 1438                                |
+```
+
+
+
+
 
 
