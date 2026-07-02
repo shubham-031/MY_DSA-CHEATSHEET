@@ -8,7 +8,7 @@ class Solution {
   public:
     vector <int> moveZeroes(vector<int>& nums) {
 
-        int n = nums.size();
+        int n = nums.size();  
         int start =0;
 
 
@@ -116,6 +116,8 @@ public:
 };
 
 ```
+
+
 // continue म्हणजे सध्याची iteration skip करून loop ची पुढची iteration सुरू करणे.
 
 
