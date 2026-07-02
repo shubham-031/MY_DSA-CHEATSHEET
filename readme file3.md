@@ -245,6 +245,8 @@ public:
 ### Sliding Window----II
 -------------------
  ## 1.Maximum Sum of Distinct Subarrays With Length K
+
+ ## PATTERN -- Fixed Size Sliding Window + Frequency Map
 ```cpp
 class Solution {
 public:
@@ -374,6 +376,8 @@ public:
 
 ## 4.Subarray Product Less Than K
 
+## PATTERN --  Variable Size Sliding Window +  Count All Valid Subarrays
+
 ```cpp
 class Solution {
 public:
@@ -418,6 +422,10 @@ public:
 
 ## 5.Fruits Into Baskets
 
+## PATTERN --  Fruit Into Baskets = Longest Continuous Subarray   (length kadne) having at most 2 distinct numbers.
+
+## At Most K Distinct Sliding Window
+  
 ```cpp
 
 class Solution {
