@@ -54,6 +54,8 @@ public:
 ```
 
 ## 3. 3Sum
+
+
 ```cpp
 class Solution {
 public:
@@ -581,7 +583,7 @@ public:
 ## 8.Subarray with k distinct integers
 
 
-## PATTERN --SLIDING WINDOW + EXACTLY K ELEMENTS
+## PATTERN --- SLIDING WINDOW + EXACTLY K ELEMENTS
 
 ```cpp
 class Solution {
