@@ -653,6 +653,45 @@ Placement साठी माझ्या मते हे ५ Variable Sliding 
 | **4. Minimum Window**                     | 76, 209                                  |
 | **5. Monotonic Window**                   | 239, 1438                                |
 ```
+```
+Final Placement Classification
+Sliding Window
+│
+├── Fixed Size
+│
+│   ├── Maximum Sum
+│   ├── Average
+│   ├── Frequency
+│   ├── Distinct
+│   └── Anagram
+│
+└── Variable Size
+    │
+    ├── Longest Valid Window ⭐⭐⭐⭐⭐
+    │   ├── No Bad Element (485)
+    │   ├── At Most K Bad (487,1493,1004)
+    │   ├── At Most K Distinct (159,340,904)
+    │   ├── At Most K Replace (424,2024)
+    │   └── At Most Budget (1208,1838)
+    │
+    ├── Exactly K ⭐⭐⭐⭐⭐
+    │   ├── Distinct (992)
+    │   ├── Odd (1248)
+    │   ├── Binary Sum (930)
+    │   └── Special Count (3305,3306)
+    │
+    ├── Minimum Window ⭐⭐⭐⭐
+    │   ├── Cover Characters (76)
+    │   ├── Minimum Length (209)
+    │   ├── Cover Target (727,632)
+    │   └── Frequency Requirement (1234)
+    │
+    └── Monotonic Window ⭐⭐⭐⭐⭐
+        ├── Maximum (239)
+        ├── Minimum (862 Concept)
+        ├── Absolute Difference (1438)
+        └── Median (480)
+```
 
 
 
